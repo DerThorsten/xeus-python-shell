@@ -57,18 +57,24 @@ class XPythonShell(InteractiveShell):
 
 class XPythonShellApp(BaseIPythonApplication, InteractiveShellApp):
     def initialize(self, argv=None):
+        print("SUPER")
         super(XPythonShellApp, self).initialize(argv)
 
         self.user_ns = {}
 
         # self.init_io() ?
 
+        print("init_path")
         self.init_path()
+        print("init_shell")
         self.init_shell()
 
+        print("init_extensions")
         self.init_extensions()
+        print("init_code")
         self.init_code()
 
+        print("flush")
         sys.stdout.flush()
         sys.stderr.flush()
 
